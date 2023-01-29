@@ -30,7 +30,7 @@ const router = createBrowserRouter([
                 element: <JobOpenings />,
             },
             {
-                path: "myAccount",
+                path: "my-account",
                 element: <MyAccount />,
             },
         ],

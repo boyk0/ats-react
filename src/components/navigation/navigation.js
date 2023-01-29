@@ -13,6 +13,9 @@ export const Navigation = () => {
 				<li>
 					<Link to={`job-openings`}>Job Openings</Link>
 				</li>
+				<li>
+					<Link to={`my-account`}>My Account</Link>
+				</li>
 			</ul>
 		</nav>
 	);
