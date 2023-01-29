@@ -1,10 +1,13 @@
-import './App.css';
+import {
+    Outlet,
+} from 'react-router-dom';
+import { Navigation } from './components/navigation/navigation';
 
 export function App() {
   return (
-    <div className="App">
-
-      app
-    </div>
+      <>
+          <Navigation />
+          <Outlet />
+      </>
   );
 }

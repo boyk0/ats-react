@@ -2,10 +2,44 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { App } from './App';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Home } from './pages/home/Home';
+import { AboutCompany } from './pages/aboutCompany/AboutCompany';
+import { MyAccount } from './pages/myAccount/MyAccount';
+import { JobOpenings } from './pages/jobOpenings/JobOpenings';
+import { Error } from './pages/error/Error';
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+        errorElement: <Error />,
+        // loader: rootLoader,
+        // action: rootAction,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+            },
+            {
+                path: "about",
+                element: <AboutCompany />,
+            },
+            {
+                path: "job-openings",
+                element: <JobOpenings />,
+            },
+            {
+                path: "myAccount",
+                element: <MyAccount />,
+            },
+        ],
+    },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+      <RouterProvider router={router} />
   </React.StrictMode>
 );
