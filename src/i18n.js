@@ -17,6 +17,18 @@ const resources = {
 			"Job Openings location": "Location",
 			"Job Openings recruiter": "Recruiter",
 			"Job Openings priority": "Priority",
+			"Job Openings info title": "Title",
+			"Job Openings info recruiter": "Recruiter",
+			"Job Openings info team lead": "Team Lead",
+			"Job Openings info location": "Location",
+			"Job Openings info priority status": "Priority Status",
+			"Job Openings info date of openings": "Date of openings",
+			"Job Openings info type": "Type",
+			"Job Openings info must have": "Must have",
+			"Job Openings info salary range": "Salary range",
+			"Job Openings info date of closing": "Date of closing",
+			"Edit": "Edit",
+			"Save": "Save",
 		}
 	},
 };
