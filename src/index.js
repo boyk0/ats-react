@@ -8,6 +8,7 @@ import { AboutCompany } from './pages/aboutCompany/AboutCompany';
 import { MyAccount } from './pages/myAccount/MyAccount';
 import { JobOpenings } from './pages/jobOpenings/JobOpenings';
 import { Error } from './pages/error/Error';
+import { JobOpeningsInfo } from './pages/jobOpeningsInfo';
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: "job-openings",
                 element: <JobOpenings />,
+            },
+            {
+                path: "job-openings/info/:id",
+                element: <JobOpeningsInfo />,
             },
             {
                 path: "my-account",
