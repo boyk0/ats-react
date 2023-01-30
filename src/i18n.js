@@ -29,6 +29,16 @@ const resources = {
 			"Job Openings info date of closing": "Date of closing",
 			"Edit": "Edit",
 			"Save": "Save",
+			"My Account headline": "My Account",
+			"My Account name": "Name",
+			"My Account surname": "Surname",
+			"My Account email": "Email",
+			"My Account position": "Position",
+			"My Account add recruiter": "Add recruiter",
+			"My Account analytics header": "Analytics",
+			"My Account analytics for job openings": "For job openings",
+			"My Account analytics for recruiters": "For recruiters",
+			"Analytics header": "Analytics",
 		}
 	},
 };

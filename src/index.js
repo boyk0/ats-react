@@ -9,6 +9,9 @@ import { MyAccount } from './pages/myAccount/MyAccount';
 import { JobOpenings } from './pages/jobOpenings/JobOpenings';
 import { Error } from './pages/error/Error';
 import { JobOpeningsInfo } from './pages/jobOpeningsInfo';
+import { Analytics } from './pages/analytics/Analytics';
+import { JobOpeningsAnalytics } from './pages/analytics/JobOpeningsAnalytics';
+import { RecruiterAnalytics } from './pages/analytics/RecruiterAnalytics';
 
 const router = createBrowserRouter([
     {
@@ -27,7 +30,7 @@ const router = createBrowserRouter([
                 element: <AboutCompany />,
             },
             {
-                path: "job-openings",
+                path: "/job-openings",
                 element: <JobOpenings />,
             },
             {
@@ -37,6 +40,20 @@ const router = createBrowserRouter([
             {
                 path: "my-account",
                 element: <MyAccount />,
+            },
+            {
+                path: "/analytics/",
+                element: <Analytics />,
+                children: [
+                    {
+                        path: 'job-openings',
+                        element: <JobOpeningsAnalytics />,
+                    },
+                    {
+                        path: 'recruiters',
+                        element: <RecruiterAnalytics />,
+                    },
+                ]
             },
         ],
     },
