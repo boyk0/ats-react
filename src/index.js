@@ -16,6 +16,7 @@ import { Candidates } from './pages/candidates/Candidates';
 import { CandidatesInfo } from './pages/CandidatesInfo/CandidatesInfo';
 import { AddCandidate } from './pages/addCandidate/AddCandidate';
 import { AddJobOpenings } from './pages/addJobOpenings/AddJobOpenings';
+import { AddRecruiter } from './pages/addRecruiter/AddRecruiter';
 
 const router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: "my-account",
                 element: <MyAccount />,
+            },
+            {
+                path: "add-recruiter",
+                element: <AddRecruiter />,
             },
             {
                 path: "/analytics/",

@@ -1,5 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import { AddRecruiter } from './pages/addRecruiter/AddRecruiter';
 
 const resources = {
 	en: {
@@ -65,6 +66,7 @@ const resources = {
 			"Add Candidate header": "Add new",
 			"Candidates header": "Candidates",
 			"Add New Job Opening Header": "Add new Job Opening",
+			"Add Recruiter Header": "Add Recruiter",
 			"": "",
 		}
 	},

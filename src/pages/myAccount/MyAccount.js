@@ -49,7 +49,9 @@ export const MyAccount = () => {
 					</div>
 				</div>
 				<div className="MyAccount-action">
-					<button>{t('My Account add recruiter')}</button>
+					<Link to={'/add-recruiter'}>
+						{t('My Account add recruiter')}
+					</Link>
 				</div>
 			</div>
 
