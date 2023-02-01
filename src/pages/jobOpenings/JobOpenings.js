@@ -24,9 +24,7 @@ export const JobOpenings = () => {
 					{t('Job Openings header')}
 				</h1>
 				<div className="JobOpenings-add">
-					<button>
-						{t('Add new')}
-					</button>
+					<Link to={`/job-openings/add`}>{t('Add new')}</Link>
 				</div>
 			</div>
 

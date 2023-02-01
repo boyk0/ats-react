@@ -8,10 +8,14 @@ import { AboutCompany } from './pages/aboutCompany/AboutCompany';
 import { MyAccount } from './pages/myAccount/MyAccount';
 import { JobOpenings } from './pages/jobOpenings/JobOpenings';
 import { Error } from './pages/error/Error';
-import { JobOpeningsInfo } from './pages/jobOpeningsInfo';
+import { JobOpeningsInfo } from './pages/jobOpeningsInfo/JobOpeningsInfo';
 import { Analytics } from './pages/analytics/Analytics';
 import { JobOpeningsAnalytics } from './pages/analytics/JobOpeningsAnalytics';
 import { RecruiterAnalytics } from './pages/analytics/RecruiterAnalytics';
+import { Candidates } from './pages/candidates/Candidates';
+import { CandidatesInfo } from './pages/CandidatesInfo/CandidatesInfo';
+import { AddCandidate } from './pages/addCandidate/AddCandidate';
+import { AddJobOpenings } from './pages/addJobOpenings/AddJobOpenings';
 
 const router = createBrowserRouter([
     {
@@ -30,8 +34,24 @@ const router = createBrowserRouter([
                 element: <AboutCompany />,
             },
             {
+                path: "candidates",
+                element: <Candidates />,
+            },
+            {
+                path: "candidates/add",
+                element: <AddCandidate />,
+            },
+            {
+                path: "candidates/info/:id",
+                element: <CandidatesInfo />,
+            },
+            {
                 path: "/job-openings",
                 element: <JobOpenings />,
+            },
+            {
+                path: "/job-openings/add",
+                element: <AddJobOpenings />,
             },
             {
                 path: "job-openings/info/:id",

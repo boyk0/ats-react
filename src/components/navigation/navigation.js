@@ -14,6 +14,9 @@ export const Navigation = () => {
 					<Link to={`about-company`}>{t('About company')}</Link>
 				</li>
 				<li>
+					<Link to={`candidates`}>{t('Candidates')}</Link>
+				</li>
+				<li>
 					<Link to={`job-openings`}>{t('Job Openings')}</Link>
 				</li>
 				<li>
