@@ -17,6 +17,7 @@ import { CandidatesInfo } from './pages/CandidatesInfo/CandidatesInfo';
 import { AddCandidate } from './pages/addCandidate/AddCandidate';
 import { AddJobOpenings } from './pages/addJobOpenings/AddJobOpenings';
 import { AddRecruiter } from './pages/addRecruiter/AddRecruiter';
+import { RecruitersInfo } from './pages/recruiitersInfo/RecruitersInfo';
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: "candidates/info/:id",
                 element: <CandidatesInfo />,
+            },
+            {
+                path: "recruiter/info/:id",
+                element: <RecruitersInfo />,
             },
             {
                 path: "/job-openings",
