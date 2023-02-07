@@ -1,0 +1,19 @@
+.AboutCompany {
+  padding: 15px 150px 0 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  &-header {
+  }
+
+  &-content {
+    padding-top: 75px;
+
+    span {
+      font-family: 'Arimo', sans-serif;
+      font-size: 22px;
+    }
+  }
+}

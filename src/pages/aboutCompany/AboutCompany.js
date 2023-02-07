@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { toHTML } from '../../helpers';
 
 export const AboutCompany = () => {
 	const { t } = useTranslation();
@@ -11,7 +12,7 @@ export const AboutCompany = () => {
 
 			<div className="AboutCompany-content">
 				<span>
-					{t('About company content')}
+					{toHTML(t('About company content'))}
 				</span>
 			</div>
 		</div>

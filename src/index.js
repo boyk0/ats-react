@@ -19,6 +19,7 @@ import { AddJobOpenings } from './pages/addJobOpenings/AddJobOpenings';
 import { AddRecruiter } from './pages/addRecruiter/AddRecruiter';
 import { RecruitersInfo } from './pages/recruiitersInfo/RecruitersInfo';
 import './static/fonts/Nunito/Nunito-VariableFont_wght.ttf';
+import './static/fonts/Arimo/Arimo-VariableFont_wght.ttf';
 import './styles/All.scss';
 
 const router = createBrowserRouter([

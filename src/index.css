@@ -7,8 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   background: #006eff;
+  color: #fff;
   box-sizing: border-box;
-  /*height: 100%;*/
 }
 
 code {
@@ -20,4 +20,15 @@ code {
   font-family: "Nunito";
   src: local("Nunito"),
   url("./static/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Arimo";
+  src: local("Arimo"),
+  url("./static/fonts/Arimo/Arimo-VariableFont_wght.ttf") format("truetype");
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
 }
