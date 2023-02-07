@@ -1,0 +1,49 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px 25px;
+
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 25px;
+      height: 50px;
+      text-align: center;
+
+      &:first-child {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        padding-left: 0;
+        height: 50px;
+
+        img {
+          height: 50px;
+          margin-right: 25px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

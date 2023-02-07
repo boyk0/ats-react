@@ -18,6 +18,7 @@ import { AddCandidate } from './pages/addCandidate/AddCandidate';
 import { AddJobOpenings } from './pages/addJobOpenings/AddJobOpenings';
 import { AddRecruiter } from './pages/addRecruiter/AddRecruiter';
 import { RecruitersInfo } from './pages/recruiitersInfo/RecruitersInfo';
+import './static/fonts/Nunito/Nunito-VariableFont_wght.ttf'
 
 const router = createBrowserRouter([
     {
