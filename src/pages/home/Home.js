@@ -5,7 +5,9 @@ export const Home = () => {
 
 	return (
 		<div className="Home">
-			{t('Home content')}
+			<div className="Home-content">
+				{t('Home content')}
+			</div>
 		</div>
 	);
 }

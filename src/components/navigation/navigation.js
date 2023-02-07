@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import './style/navigation.scss';
 import logo from './../../static/iamges/logo.png';
 export const Navigation = () => {
 	const { t } = useTranslation();
