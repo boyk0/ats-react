@@ -12,7 +12,7 @@ export const Candidates = () => {
 
 	const dataContent = (arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]) => {
 		return arr.map((id) =>
-			<tr>
+			<tr key={id}>
 				<td>
 					<Link to={`/candidates/info/${id}`}>Maria Silladou</Link>
 				</td>
@@ -25,10 +25,13 @@ export const Candidates = () => {
 
 	return (
 		<div className="Candidates">
-			<div className="Candidates-header">
-				<h1>
-					{t('Candidates header')}
-				</h1>
+			<div className="Candidates-row">
+				<div className="Candidates-header">
+					<h1>
+						{t('Candidates header')}
+					</h1>
+				</div>
+
 				<div className="Candidates-add">
 					<Link to={'/candidates/add'}>
 						{t('Add new')}

@@ -40,7 +40,7 @@ const resources = {
 			"My Account analytics for recruiters": "For recruiters",
 			"Analytics header": "Analytics",
 			"Candidates": "Candidates",
-			"Candidates name": "Candidate's job openings",
+			"Candidates name": "Candidate's Name",
 			"Candidates email": "E-mail",
 			"Candidates location": "Location",
 			"Candidates job openings": "Job Openings",

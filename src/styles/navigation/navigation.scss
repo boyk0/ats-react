@@ -48,12 +48,8 @@ nav {
   }
 
   &.onWhite {
-    ul {
-      li {
-        a {
-          color: #006eff;
-        }
-      }
+    a {
+      color: #006eff;
     }
   }
 }
