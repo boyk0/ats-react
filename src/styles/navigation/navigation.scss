@@ -46,4 +46,14 @@ nav {
     font-weight: bold;
     font-size: 18px;
   }
+
+  &.onWhite {
+    ul {
+      li {
+        a {
+          color: #006eff;
+        }
+      }
+    }
+  }
 }

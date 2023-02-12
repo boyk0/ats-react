@@ -1,8 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { changeBGColorToWhite } from '../../helpers';
 
 export const Candidates = () => {
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		changeBGColorToWhite()
+	});
 
 	const dataContent = (arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]) => {
 		return arr.map((id) =>

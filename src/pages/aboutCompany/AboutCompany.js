@@ -1,8 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { toHTML } from '../../helpers';
+import { changeBGColorToViolet, toHTML } from '../../helpers';
+import { useEffect } from 'react';
 
 export const AboutCompany = () => {
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		changeBGColorToViolet()
+	});
 
 	return (
 		<div className="AboutCompany">

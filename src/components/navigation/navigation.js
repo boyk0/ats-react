@@ -9,7 +9,7 @@ export const Navigation = () => {
 			<ul>
 				<li>
 					<Link to={`/`}>
-						<img src={logo} alt="Logo"/>
+						<img src={logo} className='Navigation-Logo' alt="Logo"/>
 						<span>
 							{t('Home')}
 						</span>
