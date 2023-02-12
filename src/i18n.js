@@ -60,6 +60,7 @@ const resources = {
 			"Candidates info Feedback after interview": "Feedback after interview",
 			"Candidates info Date of TT sent": "Date of TT sent",
 			"Candidates info Date of TT done": "Date of TT done",
+			"Candidates info Date of final Interview": "Date of final Interview",
 			"Candidates info Date of offer sent": "Date of offer sent",
 			"Candidates info Candidate Status": "Candidate Status",
 			"Add Candidate header": "Add new",

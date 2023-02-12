@@ -17,7 +17,9 @@ export const AddJobOpenings = () => {
 
 	return <div className="JobOpeningsInfo">
 		<div className="JobOpeningsInfo-header">
-			{t('Add New Job Opening Header')}
+			<h1>
+				{t('Add New Job Opening Header')}
+			</h1>
 		</div>
 		<div className="JobOpeningsInfo-content">
 			<div className="column">

@@ -16,7 +16,9 @@ export const JobOpeningsInfo = () => {
 
 	return <div className="JobOpeningsInfo">
 		<div className="JobOpeningsInfo-header">
-			Office Manager
+			<h1>
+				Office Manager
+			</h1>
 		</div>
 		<div className="JobOpeningsInfo-content">
 			<div className="column">
