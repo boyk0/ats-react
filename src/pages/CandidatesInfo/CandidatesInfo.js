@@ -23,7 +23,7 @@ export const CandidatesInfo = () => {
 	return <div className="CandidatesInfo">
 		<div className="CandidatesInfo-header">
 			<h1>
-				Candidate Name
+				{state.isEdit ? t('Edit') : 'Candidate Name'}
 			</h1>
 		</div>
 		<div className="CandidatesInfo-content">

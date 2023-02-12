@@ -1,0 +1,80 @@
+.JobOpenings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 185px;
+  }
+
+  &-header {
+    h1 {
+      padding: 0 50px;
+      color: #ffffff;
+    }
+  }
+
+  &-add {
+    display: flex;
+    flex-direction: column-reverse;
+
+    a {
+      display: block;
+      color: #ffffff;
+      font-family: 'Nunito', sans-serif;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      background-color: #006eff;
+      padding: 10px 30px;
+      margin-left: 50px;
+      border-radius: 15px;
+    }
+
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 40px;
+    margin-top: 10px;
+  }
+
+  &-table {
+    table {
+      border-spacing: 0;
+      border: 1px solid #000000;
+
+      tr {
+        th {
+          font-size: 12px;
+          font-family: 'Nunito', sans-serif;
+          font-weight: bold;
+          color: #000000;
+          padding: 15px 50px;
+          text-align: center;
+          border: 1px solid #000000;
+        }
+
+        td {
+          font-size: 12px;
+          font-family: 'Nunito', sans-serif;
+          color: #000000;
+          padding: 15px 50px;
+          text-align: center;
+          border: 1px solid #000000;
+
+          a {
+            color: #006eff;
+            font-weight: bold;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

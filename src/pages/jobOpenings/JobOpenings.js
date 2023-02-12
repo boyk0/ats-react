@@ -1,8 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { changeBGColorToViolet } from '../../helpers';
 
 export const JobOpenings = () => {
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		changeBGColorToViolet()
+	});
 
 	const dataContent = (arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]) => {
 		return arr.map((id) =>
@@ -19,10 +25,13 @@ export const JobOpenings = () => {
 
 	return (
 		<div className="JobOpenings">
-			<div className="JobOpenings-header">
-				<h1>
-					{t('Job Openings header')}
-				</h1>
+			<div className="JobOpenings-row">
+
+				<div className="JobOpenings-header">
+					<h1>
+						{t('Job Openings header')}
+					</h1>
+				</div>
 				<div className="JobOpenings-add">
 					<Link to={`/job-openings/add`}>{t('Add new')}</Link>
 				</div>
