@@ -1,0 +1,23 @@
+.Analytics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-header {
+    margin-top: 20px;
+
+    h1 {
+      color: #c100d1;
+      margin: 0;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,40 @@
+.JobOpeningsAnalytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-header {
+    text-align: center;
+    width: 100%;
+
+    h4 {
+      color: #c100d1;
+      margin: 0;
+    }
+  }
+
+  &-enter-job-openings {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+    padding: 25px 0;
+
+    input {
+      border: none;
+      background: none;
+      font-family: 'Nunito', sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      width: 150px;
+      color: #c100d1;
+
+      &::placeholder {
+        color: #c100d1;
+      }
+    }
+  }
+}

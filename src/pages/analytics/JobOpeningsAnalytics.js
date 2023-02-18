@@ -20,15 +20,11 @@ export const JobOpeningsAnalytics = () => {
 	return (
 		<div className="JobOpeningsAnalytics">
 			<div className="JobOpeningsAnalytics-header">
-				<h1>
-					{t('Job Openings header')}
-				</h1>
-				<h3>
+				<h4>
 					{t('Analytics for job openings subheader')}
-				</h3>
+				</h4>
 				<div className="JobOpeningsAnalytics-enter-job-openings">
-					<input placeholder={t('Analytics for job openings enter job opening')}>
-					</input>
+					<input placeholder={t('Analytics for job openings enter job opening')}/>
 				</div>
 			</div>
 

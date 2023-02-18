@@ -20,12 +20,9 @@ export const RecruiterAnalytics = () => {
 	return (
 		<div className="RecruiterAnalytics">
 			<div className="RecruiterAnalytics-header">
-				<h1>
-					{t('Recruiter Analytics header')}
-				</h1>
-				<h3>
+				<h4>
 					{t('Recruiter Analytics subheader')}
-				</h3>
+				</h4>
 			</div>
 			<div className="RecruiterAnalytics-content">
 				<div className="RecruiterAnalytics-table">
