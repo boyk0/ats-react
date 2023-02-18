@@ -11,6 +11,31 @@ body {
   box-sizing: border-box;
 }
 
+body.BlueColor {
+  background: #006eff;
+}
+
+body.WhiteColor {
+  background: #ffffff;
+
+}
+
+body.VioletColor {
+  background: #c100d1;
+}
+
+body.onMyAccount {
+  background: #ffffff;
+  background-image: url("./static/iamges/bg.png");
+  background-repeat: no-repeat;
+  background-position: calc(100vw - 200px) -350px;
+}
+
+body.onMyAccount nav a {
+  color: #c100d1;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

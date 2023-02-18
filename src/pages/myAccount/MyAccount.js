@@ -1,8 +1,15 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { changeBGColorMyAccount } from '../../helpers';
+import { useEffect } from 'react';
 
 export const MyAccount = () => {
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		changeBGColorMyAccount()
+	});
+
 
 	return (
 		<div className="MyAccount">
