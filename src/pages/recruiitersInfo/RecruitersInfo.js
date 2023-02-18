@@ -1,7 +1,14 @@
 import { useTranslation } from 'react-i18next';
+import image from './../../static/iamges/image-add.png'
+import { useEffect } from 'react';
+import { changeBGColorMyAccount } from '../../helpers';
 
 export const RecruitersInfo = () => {
 	const { t } = useTranslation();
+
+	useEffect(() => {
+		changeBGColorMyAccount()
+	});
 
 	return (
 		<div className="RecruitersInfo">
@@ -12,9 +19,11 @@ export const RecruitersInfo = () => {
 			</div>
 
 			<div className="RecruitersInfo-content">
-				<img src="./" alt="photo"/>
+				<div className="image">
+					<img src={image} alt="photo"/>
+				</div>
 				<div className="RecruitersInfo-info">
-					<div className="MyAccount-info-row">
+					<div className="RecruitersInfo-info-row">
 						<span className="title">
 							{t('My Account name')}
 						</span>
