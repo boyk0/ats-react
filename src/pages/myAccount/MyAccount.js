@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { changeBGColorMyAccount } from '../../helpers';
 import { useEffect } from 'react';
+import image from './../../static/iamges/image-add.png'
 
 export const MyAccount = () => {
 	const { t } = useTranslation();
@@ -20,7 +21,10 @@ export const MyAccount = () => {
 			</div>
 
 			<div className="MyAccount-content">
-				<img src="./" alt="photo"/>
+				<div className="image">
+					<img src={image} alt="photo"/>
+				</div>
+
 				<div className="MyAccount-info">
 					<div className="MyAccount-info-row">
 						<span className="title">
@@ -55,11 +59,13 @@ export const MyAccount = () => {
 						</span>
 					</div>
 				</div>
-				<div className="MyAccount-action">
-					<Link to={'/add-recruiter'}>
-						{t('My Account add recruiter')}
-					</Link>
-				</div>
+
+			</div>
+
+			<div className="MyAccount-action">
+				<Link to={'/add-recruiter'}>
+					{t('My Account add recruiter')}
+				</Link>
 			</div>
 
 			<div className="MyAccount-analytics">

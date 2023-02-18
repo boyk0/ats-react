@@ -31,6 +31,13 @@ body.onMyAccount {
   background-position: calc(100vw - 200px) -350px;
 }
 
+body.onAddRecruiter {
+  background: #c100d1;
+  background-image: url("./static/iamges/bg.png");
+  background-repeat: no-repeat;
+  background-position: calc(100vw - 350px) calc(100vh - 400px);
+}
+
 body.onMyAccount nav a {
   color: #c100d1;
 }

@@ -5,6 +5,7 @@ export const changeBGColorToBlue = () => {
 	const body = document.body
 	body?.classList?.remove('onMyAccount')
 	body?.classList?.remove('WhiteColor')
+	body?.classList?.remove('onAddRecruiter')
 	body?.classList?.remove('VioletColor')
 	body?.classList?.add('BlueColor')
 	const nav = document.getElementsByTagName('nav')[0]
@@ -20,6 +21,7 @@ export const changeBGColorToWhite = () => {
 
 	body?.classList?.remove('onMyAccount')
 	body?.classList?.remove('BlueColor')
+	body?.classList?.remove('onAddRecruiter')
 	body?.classList?.remove('VioletColor')
 	body?.classList?.add('WhiteColor')
 	const nav = document.getElementsByTagName('nav')[0]
@@ -35,6 +37,7 @@ export const changeBGColorToViolet = () => {
 	body?.classList?.remove('onMyAccount')
 	body?.classList?.remove('BlueColor')
 	body?.classList?.remove('WhiteColor')
+	body?.classList?.remove('onAddRecruiter')
 	body?.classList?.add('VioletColor')
 	const nav = document.getElementsByTagName('nav')[0]
 	nav?.classList?.remove('onWhite')
@@ -48,6 +51,7 @@ export const changeBGColorMyAccount = () => {
 	body?.classList?.remove('BlueColor')
 	body?.classList?.remove('VioletColor')
 	body?.classList?.remove('WhiteColor')
+	body?.classList?.remove('onAddRecruiter')
 	body?.classList?.add('onMyAccount')
 
 	const nav = document.getElementsByTagName('nav')[0]
@@ -55,4 +59,19 @@ export const changeBGColorMyAccount = () => {
 
 	const logo = document.getElementsByClassName('Navigation-Logo')[0]
 	logo.src = violetLogo
+}
+
+export const changeBGColorAddRecruiter = () => {
+	const body = document.body
+
+	body?.classList?.remove('onMyAccount')
+	body?.classList?.remove('BlueColor')
+	body?.classList?.remove('WhiteColor')
+	body?.classList?.remove('VioletColor')
+	body?.classList?.add('onAddRecruiter')
+	const nav = document.getElementsByTagName('nav')[0]
+	nav?.classList?.remove('onWhite')
+
+	const logo = document.getElementsByClassName('Navigation-Logo')[0]
+	logo.src = blueLogo
 }

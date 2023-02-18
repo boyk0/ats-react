@@ -1,0 +1,81 @@
+.AddRecruiter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &-header {
+    h1 {
+      padding: 0 50px;
+      color: #ffffff;
+    }
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+
+    .image {
+      margin-right: 75px;
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+      }
+    }
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+
+    &-row {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 15px;
+
+      span {
+        width: 100px;
+        font-family: 'Nunito', sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      input {
+        border: none;
+        background-color: #ffffff;
+        text-align: center;
+        color: #006eff;
+        font-family: 'Nunito', sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        width: 200px;
+      }
+    }
+  }
+
+  &-actions {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    margin-top: 200px;
+
+    &-action {
+      button {
+        border: none;
+        background-color: #006eff;
+        color: #ffffff;
+        font-size: 18px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: bold;
+        padding: 10px 50px;
+        border-radius: 12px;
+      }
+    }
+  }
+}
