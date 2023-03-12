@@ -79,6 +79,7 @@ const resources = {
 			"Recruiter Analytics table job opening": "Job Opening",
 			"Recruiter Analytics table priority": "Priority",
 			"Recruiter Analytics table location": "Location",
+			"Loading": "Loading",
 		}
 	},
 };
