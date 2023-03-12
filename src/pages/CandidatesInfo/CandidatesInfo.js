@@ -25,7 +25,7 @@ export const CandidatesInfo = () => {
 
 	const loadData = (id) => {
 		axios.get(`${url}candidate/${id}`)
-			.then(data => data.data)
+			.then(response => response.data)
 			.then(data => setData(data))
 			.catch(error => {
 				console.error(error.message);
@@ -190,7 +190,7 @@ export const CandidatesInfo = () => {
 							<div className="edit-button">
 								{isEdit
 									? <button onClick={onSave}>{t('Save')}</button>
-									: <button onClick={onEditClick}>{saveLoading ? t('Loading') : t('Edit')}</button>
+									: <button onClick={onEditClick} disabled={saveLoading}>{saveLoading ? t('Loading') : t('Edit')}</button>
 								}
 							</div>
 
