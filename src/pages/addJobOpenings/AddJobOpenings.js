@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
+import axios from 'axios';
+import { url } from '../../client';
 
 export const AddJobOpenings = () => {
 
@@ -10,14 +12,26 @@ export const AddJobOpenings = () => {
 		changeBGColorToBlue()
 	});
 
-	const [state, setState] = useState({isEdit: false});
-
-	const onEditClick = () => {
-		setState({isEdit: true})
+	const defaultJobOpenings = {
+		title: '',
+		recruiterName: '',
+		teamLead: '',
+		location: '',
+		priorityStatus: '',
+		dateOfOpening: '',
+		type: '',
+		mustHave: '',
+		salaryRange: '',
+		dateOfClosing: '',
 	}
 
+	const [data, setData] = useState({...defaultJobOpenings})
+
 	const onSave = () => {
-		setState({isEdit: false})
+		axios.post(`${url}job-openings`, data)
+			.then()
+			.catch(error => console.error(error.message))
+			.finally()
 	}
 
 	return <div className="JobOpeningsInfo">
@@ -34,37 +48,37 @@ export const AddJobOpenings = () => {
 						<span className="title">
 							{t('Job Openings info title')}
 						</span>
-						<input type="text" value={'Title'}/>
+						<input type="text" placeholder={t('Job Openings info title')} value={data.title} onChange={e => setData({...data, title: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
 							{t('Job Openings info recruiter')}
 						</span>
-						<input type="text" value={'recruiter'}/>
+						<input type="text" value={data.recruiterName} placeholder={t('Job Openings info recruiter')} onChange={e => setData({...data, recruiterName: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
 							{t('Job Openings info team lead')}
 						</span>
-						<input type="text" value={'team lead'}/>
+						<input type="text" value={data.teamLead} placeholder={t('Job Openings info team lead')} onChange={e => setData({...data, teamLead: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
 							{t('Job Openings info location')}
 						</span>
-						<input type="text" value={'location'}/>
+						<input type="text" value={data.location} placeholder={t('Job Openings info location')} onChange={e => setData({...data, location: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
 							{t('Job Openings info priority status')}
 						</span>
-						<input type="text" value={'High'}/>
+						<input type="text" value={data.priorityStatus} placeholder={t('Job Openings info priority status')} onChange={e => setData({...data, priorityStatus: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
 							{t('Job Openings info date of openings')}
 						</span>
-						<input type="text" value={'10.10.2022'}/>
+						<input type="text" value={data.dateOfOpening} placeholder={t('Job Openings info date of openings')} onChange={e => setData({...data, dateOfOpening: e.target.value})}/>
 					</div>
 				</div>
 
@@ -73,25 +87,25 @@ export const AddJobOpenings = () => {
 					<span className="title">
 						{t('Job Openings info type')}
 					</span>
-					<input type="text" value={'Full time'}/>
+					<input type="text" value={data.type} placeholder={t('Job Openings info type')} onChange={e => setData({...data, type: e.target.value})}/>
 				</div>
 				<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info must have')}
 					</span>
-					<input type="text" value={'Must have'}/>
+					<input type="text" value={data.mustHave} placeholder={t('Job Openings info must have')} onChange={e => setData({...data, mustHave: e.target.value})}/>
 				</div>
 				<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info salary range')}
 					</span>
-					<input type="text" value={'3000 $'}/>
+					<input type="text" value={data.salaryRange} placeholder={t('Job Openings info salary range')} onChange={e => setData({...data, salaryRange: e.target.value})}/>
 				</div>
 				<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info date of closing')}
 					</span>
-					<input type="text" value={'date'}/>
+					<input type="text" value={data.dateOfClosing} placeholder={t('Job Openings info date of closing')} onChange={e => setData({...data, dateOfClosing: e.target.value})}/>
 				</div>
 			</div>
 			</div>
