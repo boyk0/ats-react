@@ -3,10 +3,11 @@ import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
 import axios from 'axios';
 import { url } from '../../client';
+import { useNavigate } from 'react-router-dom';
 
 export const AddJobOpenings = () => {
-
 	const { t } = useTranslation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		changeBGColorToBlue()
@@ -27,11 +28,10 @@ export const AddJobOpenings = () => {
 
 	const [data, setData] = useState({...defaultJobOpenings})
 
-	const onSave = () => {
-		axios.post(`${url}job-openings`, data)
-			.then()
+	const onSave = async () => {
+		await axios.post(`${url}job-openings`, data)
+			.then(() => navigate('/job-openings'))
 			.catch(error => console.error(error.message))
-			.finally()
 	}
 
 	return <div className="JobOpeningsInfo">
