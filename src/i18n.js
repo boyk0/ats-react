@@ -34,6 +34,7 @@ const resources = {
 			"My Account surname": "Surname",
 			"My Account email": "Email",
 			"My Account position": "Position",
+			"My Account password": "Password",
 			"My Account add recruiter": "Add recruiter",
 			"My Account analytics header": "Analytics",
 			"My Account analytics for job openings": "For job openings",

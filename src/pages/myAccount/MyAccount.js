@@ -1,18 +1,41 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { changeBGColorMyAccount } from '../../helpers';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import image from './../../static/iamges/image-add.png'
+import axios from 'axios';
+import { url } from '../../client';
 
 export const MyAccount = () => {
 	const { t } = useTranslation();
 
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState();
+	const [data, setData] = useState({});
+
 	useEffect(() => {
 		changeBGColorMyAccount()
+
+		if (loading) {
+			loadData();
+		}
 	});
+
+	const loadData = () => {
+		axios.get(`${url}recruiter/me`)
+			.then(response => response.data)
+			.then(data => setData(data))
+			.catch(error => {
+				console.error(error.message);
+				setError(error);
+			})
+			.finally(() => setLoading(false));
+	}
 
 
 	return (
+		<>
+			{!loading &&
 		<div className="MyAccount">
 			<div className="MyAccount-header">
 				<h1>
@@ -31,7 +54,7 @@ export const MyAccount = () => {
 							{t('My Account name')}
 						</span>
 						<span className="data">
-							Name
+							{data.name}
 						</span>
 					</div>
 					<div className="MyAccount-info-row">
@@ -39,7 +62,7 @@ export const MyAccount = () => {
 							{t('My Account surname')}
 						</span>
 						<span className="data">
-							surname
+							{data.surname}
 						</span>
 					</div>
 					<div className="MyAccount-info-row">
@@ -47,7 +70,7 @@ export const MyAccount = () => {
 							{t('My Account email')}
 						</span>
 						<span className="data">
-							email
+							{data.email}
 						</span>
 					</div>
 					<div className="MyAccount-info-row">
@@ -55,7 +78,7 @@ export const MyAccount = () => {
 							{t('My Account position')}
 						</span>
 						<span className="data">
-							position
+							{data.position}
 						</span>
 					</div>
 				</div>
@@ -80,5 +103,9 @@ export const MyAccount = () => {
 				</div>
 			</div>
 		</div>
+			}
+
+			{error && <div>error</div>}
+		</>
 	);
 }
