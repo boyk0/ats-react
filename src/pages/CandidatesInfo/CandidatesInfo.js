@@ -23,7 +23,7 @@ export const CandidatesInfo = () => {
 	});
 
 	const loadData = (id) => {
-		axiosClient.get(`candidate/${id}`)
+		axiosClient.get(`${url}candidate/${id}`)
 			.then(response => response.data)
 			.then(data => setData(data))
 			.catch(error => {
