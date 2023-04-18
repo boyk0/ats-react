@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
-import imageAdd from './../../static/iamges/image-add.png'
-import axios from 'axios';
-import { url } from '../../client';
+import imageAdd from '../../static/images/image-add.png'
+import { axiosClient, url } from '../../client';
 
 export const AddCandidate = () => {
 	const { t } = useTranslation();
@@ -39,7 +38,7 @@ export const AddCandidate = () => {
 	});
 
 	const onSave = () => {
-		axios.post(`${url}candidate`, data)
+		axiosClient.post(`${url}candidate`, data)
 			.then(() => setData({...defaultData}))
 			.catch(error => {
 				console.error(error.message);

@@ -2,8 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { changeBGColorToViolet } from '../../helpers';
-import axios from 'axios';
-import { url } from '../../client';
+import { axiosClient, url } from '../../client';
 
 export const JobOpenings = () => {
 	const { t } = useTranslation();
@@ -19,7 +18,7 @@ export const JobOpenings = () => {
 	});
 
 	const loadData = () => {
-		axios.get(`${url}job-openings/all`)
+		axiosClient.get(`${url}job-openings/all`)
 			.then(data => data.data)
 			.then(data => setData(data))
 			.catch(error => {

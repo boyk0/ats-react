@@ -2,8 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { changeBGColorToWhite } from '../../helpers';
-import axios from 'axios';
-import { url } from '../../client';
+import { axiosClient, url } from '../../client';
 
 export const Candidates = () => {
 	const { t } = useTranslation();
@@ -19,7 +18,7 @@ export const Candidates = () => {
 	});
 
 	const loadData = () => {
-		axios.get(`${url}candidate/all`)
+		axiosClient.get(`${url}candidate/all`)
 			.then(data => data.data)
 			.then(data => setData(data))
 			.catch(error => {

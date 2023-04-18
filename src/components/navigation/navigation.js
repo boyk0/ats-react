@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import logo from './../../static/iamges/logo.png';
+import logo from '../../static/images/logo.png';
 export const Navigation = () => {
 	const { t } = useTranslation();
 

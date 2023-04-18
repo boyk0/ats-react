@@ -1,9 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
-import imageAdd from '../../static/iamges/image-add.png';
-import axios from 'axios';
-import { url } from '../../client';
+import imageAdd from '../../static/images/image-add.png';
+import { axiosClient, url } from '../../client';
 import { useParams } from 'react-router-dom';
 
 export const CandidatesInfo = () => {
@@ -24,10 +23,11 @@ export const CandidatesInfo = () => {
 	});
 
 	const loadData = (id) => {
-		axios.get(`${url}candidate/${id}`)
+		axiosClient.get(`candidate/${id}`)
 			.then(response => response.data)
 			.then(data => setData(data))
 			.catch(error => {
+
 				console.error(error.message);
 				setError(error);
 			})
@@ -41,7 +41,7 @@ export const CandidatesInfo = () => {
 	const onSave = () => {
 		setIsEdit(false)
 		setSaveLoading(true)
-		axios.patch(`${url}candidate/${id}`, {...data, __v: undefined, _id: undefined})
+		axiosClient.patch(`${url}candidate/${id}`, {...data, __v: undefined, _id: undefined})
 			.then()
 			.catch(error => {
 				console.error(error.message);

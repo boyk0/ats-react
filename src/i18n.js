@@ -34,6 +34,7 @@ const resources = {
 			"My Account surname": "Surname",
 			"My Account email": "Email",
 			"My Account position": "Position",
+			"My Account password": "Password",
 			"My Account add recruiter": "Add recruiter",
 			"My Account analytics header": "Analytics",
 			"My Account analytics for job openings": "For job openings",
@@ -80,6 +81,10 @@ const resources = {
 			"Recruiter Analytics table priority": "Priority",
 			"Recruiter Analytics table location": "Location",
 			"Loading": "Loading",
+			"Login page header": "Login",
+			"Login email": "Enter your e-mail",
+			"Login password": "Enter your password",
+			"Login login": "Go",
 		}
 	},
 };

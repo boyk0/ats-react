@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import image from './../../static/iamges/image-add.png'
+import image from '../../static/images/image-add.png'
 import { useEffect } from 'react';
 import { changeBGColorMyAccount } from '../../helpers';
 
