@@ -81,6 +81,10 @@ const resources = {
 			"Recruiter Analytics table priority": "Priority",
 			"Recruiter Analytics table location": "Location",
 			"Loading": "Loading",
+			"Login page header": "Login",
+			"Login email": "Enter your e-mail",
+			"Login password": "Enter your password",
+			"Login login": "Go",
 		}
 	},
 };

@@ -2,9 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { changeBGColorMyAccount } from '../../helpers';
 import { useEffect, useState } from 'react';
-import image from './../../static/iamges/image-add.png'
-import axios from 'axios';
-import { url } from '../../client';
+import image from '../../static/images/image-add.png'
+import { axiosClient, url } from '../../client';
 
 export const MyAccount = () => {
 	const { t } = useTranslation();
@@ -22,7 +21,7 @@ export const MyAccount = () => {
 	});
 
 	const loadData = () => {
-		axios.get(`${url}recruiter/me`)
+		axiosClient.get(`${url}auth/profile`)
 			.then(response => response.data)
 			.then(data => setData(data))
 			.catch(error => {

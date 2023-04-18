@@ -21,6 +21,7 @@ import { RecruitersInfo } from './pages/recruiitersInfo/RecruitersInfo';
 import './static/fonts/Nunito/Nunito-VariableFont_wght.ttf';
 import './static/fonts/Arimo/Arimo-VariableFont_wght.ttf';
 import './styles/All.scss';
+import { Login } from './pages/login/Login';
 
 const router = createBrowserRouter([
     {
@@ -90,6 +91,12 @@ const router = createBrowserRouter([
             },
         ],
     },
+    {
+        path: 'login',
+        element: <Login />,
+        errorElement: <Error />,
+
+    }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

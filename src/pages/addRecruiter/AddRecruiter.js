@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorAddRecruiter } from '../../helpers';
-import image from './../../static/iamges/image-add.png'
+import image from '../../static/images/image-add.png'
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { url } from '../../client';
+import { axiosClient, url } from '../../client';
 
 export const AddRecruiter = () => {
 	const initialData = {
@@ -26,7 +25,7 @@ export const AddRecruiter = () => {
 
 	const onSave = () => {
 		setLoading(true)
-		axios.post(`${url}recruiter`, formData)
+		axiosClient.post(`${url}recruiter`, formData)
 			.then(() => navigate('/my-account'))
 			.catch((e) => console.error(e.message))
 			.finally(() => setLoading(false))

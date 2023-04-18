@@ -2,8 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import { url } from '../../client';
+import { axiosClient, url } from '../../client';
 
 export const JobOpeningsInfo = () => {
 	const { t } = useTranslation();
@@ -30,7 +29,7 @@ export const JobOpeningsInfo = () => {
 	const onSave = () => {
 		setIsEdit(false)
 		setSaveLoading(true)
-		axios.patch(`${url}job-openings/${id}`, {...data, __v: undefined, _id: undefined})
+		axiosClient.patch(`${url}job-openings/${id}`, {...data, __v: undefined, _id: undefined})
 			.then()
 			.catch(error => {
 				console.error(error.message);
@@ -40,7 +39,7 @@ export const JobOpeningsInfo = () => {
 	}
 
 	const loadData = (id) => {
-		axios.get(`${url}job-openings/${id}`)
+		axiosClient.get(`${url}job-openings/${id}`)
 			.then(response => response.data)
 			.then(data => setData(data))
 			.catch(error => {

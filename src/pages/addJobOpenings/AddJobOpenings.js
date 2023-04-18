@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
-import axios from 'axios';
-import { url } from '../../client';
+import { axiosClient, url } from '../../client';
 import { useNavigate } from 'react-router-dom';
 
 export const AddJobOpenings = () => {
@@ -29,7 +28,7 @@ export const AddJobOpenings = () => {
 	const [data, setData] = useState({...defaultJobOpenings})
 
 	const onSave = async () => {
-		await axios.post(`${url}job-openings`, data)
+		await axiosClient.post(`${url}job-openings`, data)
 			.then(() => navigate('/job-openings'))
 			.catch(error => console.error(error.message))
 	}
