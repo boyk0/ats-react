@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
 import { axiosClient, url } from '../../client';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 
 export const AddJobOpenings = () => {
 	const { t } = useTranslation();
@@ -77,7 +78,15 @@ export const AddJobOpenings = () => {
 						<span className="title">
 							{t('Job Openings info date of openings')}
 						</span>
-						<input type="text" value={data.dateOfOpening} placeholder={t('Job Openings info date of openings')} onChange={e => setData({...data, dateOfOpening: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfOpening}
+								onChange={(date) => setData({...data, dateOfOpening: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Job Openings info date of openings')}
+							/>
+						</>
 					</div>
 				</div>
 
@@ -104,7 +113,15 @@ export const AddJobOpenings = () => {
 					<span className="title">
 						{t('Job Openings info date of closing')}
 					</span>
-					<input type="text" value={data.dateOfClosing} placeholder={t('Job Openings info date of closing')} onChange={e => setData({...data, dateOfClosing: e.target.value})}/>
+					<>
+						<DatePicker
+							dateFormat="dd/MM/yyyy"
+							selected={data.dateOfClosing}
+							onChange={(date) => setData({...data, dateOfClosing: date})}
+							className={"datepicker-input"}
+							placeholderText={t('Job Openings info date of closing')}
+						/>
+					</>
 				</div>
 			</div>
 			</div>

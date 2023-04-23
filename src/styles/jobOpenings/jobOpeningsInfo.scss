@@ -44,7 +44,7 @@
         width: 200px;
       }
 
-      input {
+      input, .datepicker-input {
         border: none;
         background-color: #c100d1;
         font-family: 'Nunito', sans-serif;
@@ -52,10 +52,17 @@
         color: #ffffff;
         text-align: center;
         width: 200px;
+        height: 17px;
 
         &::placeholder {
           color: #ffffff;
         }
+      }
+
+      .react-datepicker-wrapper {
+        margin-top: -5px;
+        width: 200px;
+        height: 19px;
       }
     }
 
