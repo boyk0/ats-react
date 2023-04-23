@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
 import imageAdd from '../../static/images/image-add.png'
 import { axiosClient, url } from '../../client';
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 export const AddCandidate = () => {
 	const { t } = useTranslation();
@@ -97,14 +100,12 @@ export const AddCandidate = () => {
 						</span>
 						<input type="text" placeholder={t('Candidates info Telegram nickname')} value={data.telegramNick} onChange={e => setData({...data, telegramNick: e.target.value})}/>
 					</div>
-
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info Linkedin URL')}
 						</span>
 						<input type="text" placeholder={t('Candidates info Linkedin URL')} value={data.linkedInLink} onChange={e => setData({...data, linkedInLink: e.target.value})}/>
 					</div>
-
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info English Level')}
@@ -136,13 +137,29 @@ export const AddCandidate = () => {
 						<span className="title">
 							{t('Candidates info Contact Date')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Contact Date')} value={data.contactDate} onChange={e => setData({...data, contactDate: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.contactDate}
+								onChange={(date) => setData({...data, contactDate: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Contact Date')}
+							/>
+						</>
 					</div>
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info Date of Interview')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Date of Interview')} value={data.dateOfInterview} onChange={e => setData({...data, dateOfInterview: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfInterview}
+								onChange={(date) => setData({...data, dateOfInterview: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Date of Interview')}
+							/>
+						</>
 					</div>
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
@@ -154,25 +171,57 @@ export const AddCandidate = () => {
 						<span className="title">
 							{t('Candidates info Date of TT sent')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Date of TT sent')} value={data.dateOfTTSent} onChange={e => setData({...data, dateOfTTSent: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfTTSent}
+								onChange={(date) => setData({...data, dateOfTTSent: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Date of TT sent')}
+							/>
+						</>
 					</div>
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info Date of TT done')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Date of TT done')} value={data.dateOfTTDone} onChange={e => setData({...data, dateOfTTDone: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfTTDone}
+								onChange={(date) => setData({...data, dateOfTTDone: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Date of TT done')}
+							/>
+						</>
 					</div>
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info Date of final Interview')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Date of final Interview')} value={data.dateOfFinalInterview} onChange={e => setData({...data, dateOfFinalInterview: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfFinalInterview}
+								onChange={(date) => setData({...data, dateOfFinalInterview: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Date of final Interview')}
+							/>
+						</>
 					</div>
 					<div className="CandidatesInfo-data-row">
 						<span className="title">
 							{t('Candidates info Date of offer sent')}
 						</span>
-						<input type="text" placeholder={t('Candidates info Date of offer sent')} value={data.dateOfOfferSent} onChange={e => setData({...data, dateOfOfferSent: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data.dateOfOfferSent}
+								onChange={(date) => setData({...data, dateOfOfferSent: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Candidates info Date of offer sent')}
+							/>
+						</>
 					</div>
 				</div>
 			</div>

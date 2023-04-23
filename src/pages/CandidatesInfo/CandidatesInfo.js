@@ -4,6 +4,7 @@ import { changeBGColorToBlue } from '../../helpers';
 import imageAdd from '../../static/images/image-add.png';
 import { axiosClient, url } from '../../client';
 import { useParams } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 
 export const CandidatesInfo = () => {
 	const { t } = useTranslation();
@@ -23,9 +24,30 @@ export const CandidatesInfo = () => {
 	});
 
 	const loadData = (id) => {
-		axiosClient.get(`candidate/${id}`)
+		axiosClient.get(`${url}candidate/${id}`)
 			.then(response => response.data)
-			.then(data => setData(data))
+			.then(initialData => {
+				const data = initialData;
+				if (data?.contactDate?.length) {
+					data.contactDate = new Date(data.contactDate)
+				}
+				if (data?.dateOfInterview?.length) {
+					data.dateOfInterview = new Date(data.dateOfInterview)
+				}
+				if (data?.dateOfTTSent?.length) {
+					data.dateOfTTSent = new Date(data.dateOfTTSent)
+				}
+				if (data?.dateOfTTDone?.length) {
+					data.dateOfTTDone = new Date(data.dateOfTTDone)
+				}
+				if (data?.dateOfFinalInterview?.length) {
+					data.dateOfFinalInterview = new Date(data.dateOfFinalInterview)
+				}
+				if (data?.dateOfOfferSent?.length) {
+					data.dateOfOfferSent = new Date(data.dateOfOfferSent)
+				}
+				setData(data)
+			})
 			.catch(error => {
 
 				console.error(error.message);
@@ -106,14 +128,12 @@ export const CandidatesInfo = () => {
 									</span>
 									<input type="text" value={data?.telegramNick} disabled={!isEdit} onChange={e => setData({...data, telegramNick: e.target.value})}/>
 								</div>
-
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info Linkedin URL')}
 									</span>
 									<input type="text" value={data?.linkedInLink} disabled={!isEdit} onChange={e => setData({...data, linkedInLink: e.target.value})}/>
 								</div>
-
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info English Level')}
@@ -145,13 +165,31 @@ export const CandidatesInfo = () => {
 									<span className="title">
 										{t('Candidates info Contact Date')}
 									</span>
-									<input type="text" value={data?.contactDate} disabled={!isEdit} onChange={e => setData({...data, contactDate: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.contactDate}
+											onChange={(date) => setData({...data, contactDate: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Contact Date')}
+										/>
+									</>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info Date of Interview')}
 									</span>
-									<input type="text" value={data?.dateOfInterview} disabled={!isEdit} onChange={e => setData({...data, dateOfInterview: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.dateOfInterview}
+											onChange={(date) => setData({...data, dateOfInterview: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Date of Interview')}
+										/>
+									</>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
@@ -163,25 +201,61 @@ export const CandidatesInfo = () => {
 									<span className="title">
 										{t('Candidates info Date of TT sent')}
 									</span>
-									<input type="text" value={data?.dateOfTTSent} disabled={!isEdit} onChange={e => setData({...data, dateOfTTSent: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.dateOfTTSent}
+											onChange={(date) => setData({...data, dateOfTTSent: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Date of TT sent')}
+										/>
+									</>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info Date of TT done')}
 									</span>
-									<input type="text" value={data?.dateOfTTDone} disabled={!isEdit} onChange={e => setData({...data, dateOfTTDone: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.dateOfTTDone}
+											onChange={(date) => setData({...data, dateOfTTDone: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Date of TT done')}
+										/>
+									</>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info Date of final Interview')}
 									</span>
-									<input type="text" value={data?.dateOfFinalInterview} disabled={!isEdit} onChange={e => setData({...data, dateOfFinalInterview: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.dateOfFinalInterview}
+											onChange={(date) => setData({...data, dateOfFinalInterview: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Date of final Interview')}
+										/>
+									</>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
 										{t('Candidates info Date of offer sent')}
 									</span>
-									<input type="text" value={data?.dateOfOfferSent} disabled={!isEdit} onChange={e => setData({...data, dateOfOfferSent: e.target.value})}/>
+									<>
+										<DatePicker
+											dateFormat="dd/MM/yyyy"
+											selected={data?.dateOfOfferSent}
+											onChange={(date) => setData({...data, dateOfOfferSent: date})}
+											className={"datepicker-input"}
+											disabled={!isEdit}
+											placeholderText={t('Candidates info Date of offer sent')}
+										/>
+									</>
 								</div>
 							</div>
 						</div>

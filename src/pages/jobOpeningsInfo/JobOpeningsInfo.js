@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { changeBGColorToBlue } from '../../helpers';
 import { useParams } from 'react-router-dom';
 import { axiosClient, url } from '../../client';
+import DatePicker from 'react-datepicker';
 
 export const JobOpeningsInfo = () => {
 	const { t } = useTranslation();
@@ -41,7 +42,16 @@ export const JobOpeningsInfo = () => {
 	const loadData = (id) => {
 		axiosClient.get(`${url}job-openings/${id}`)
 			.then(response => response.data)
-			.then(data => setData(data))
+			.then(initialData => {
+				const data = initialData;
+				if (data?.dateOfOpening?.length) {
+					data.dateOfOpening = new Date(data.dateOfOpening)
+				}
+				if (data?.dateOfClosing?.length) {
+					data.dateOfClosing = new Date(data.dateOfClosing)
+				}
+				setData(data)
+			})
 			.catch(error => {
 				console.error(error.message);
 				setError(error);
@@ -67,37 +77,45 @@ export const JobOpeningsInfo = () => {
 					<span className="title">
 						{t('Job Openings info title')}
 					</span>
-						<input type="text" value={data.title} disabled={!isEdit} onChange={e => setData({...data, title: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info title')} value={data.title} disabled={!isEdit} onChange={e => setData({...data, title: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info recruiter')}
 					</span>
-						<input type="text" value={data.recruiterName} disabled={!isEdit} onChange={e => setData({...data, recruiterName: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info recruiter')} value={data.recruiterName} disabled={!isEdit} onChange={e => setData({...data, recruiterName: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info team lead')}
 					</span>
-						<input type="text" value={data.teamLead} disabled={!isEdit} onChange={e => setData({...data, teamLead: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info team lead')} value={data.teamLead} disabled={!isEdit} onChange={e => setData({...data, teamLead: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info location')}
 					</span>
-						<input type="text" value={data.location} disabled={!isEdit} onChange={e => setData({...data, location: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info location')} value={data.location} disabled={!isEdit} onChange={e => setData({...data, location: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info priority status')}
 					</span>
-						<input type="text" value={data.priorityStatus} disabled={!isEdit} onChange={e => setData({...data, priorityStatus: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info priority status')} value={data.priorityStatus} disabled={!isEdit} onChange={e => setData({...data, priorityStatus: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info date of openings')}
 					</span>
-						<input type="text" value={data.dateOfOpening} disabled={!isEdit} onChange={e => setData({...data, dateOfOpening: e.target.value})}/>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data?.dateOfOpening}
+								onChange={(date) => setData({...data, dateOfOpening: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Job Openings info date of openings')}
+							/>
+						</>
 					</div>
 				</div>
 
@@ -106,25 +124,33 @@ export const JobOpeningsInfo = () => {
 					<span className="title">
 						{t('Job Openings info type')}
 					</span>
-						<input type="text" value={data.type} disabled={!isEdit} onChange={e => setData({...data, type: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info type')} value={data.type} disabled={!isEdit} onChange={e => setData({...data, type: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info must have')}
 					</span>
-						<input type="text" value={data.mustHave} disabled={!isEdit} onChange={e => setData({...data, mustHave: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info must have')} value={data.mustHave} disabled={!isEdit} onChange={e => setData({...data, mustHave: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">
 						{t('Job Openings info salary range')}
 					</span>
-						<input type="text" value={data.salaryRange} disabled={!isEdit} onChange={e => setData({...data, salaryRange: e.target.value})}/>
+						<input type="text" placeholder={t('Job Openings info salary range')} value={data.salaryRange} disabled={!isEdit} onChange={e => setData({...data, salaryRange: e.target.value})}/>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
-					<span className="title">
-						{t('Job Openings info date of closing')}
-					</span>
-						<input type="text" value={data.dateOfClosing} disabled={!isEdit} onChange={e => setData({...data, dateOfClosing: e.target.value})}/>
+						<span className="title">
+							{t('Job Openings info date of closing')}
+						</span>
+						<>
+							<DatePicker
+								dateFormat="dd/MM/yyyy"
+								selected={data?.dateOfClosing}
+								onChange={(date) => setData({...data, dateOfClosing: date})}
+								className={"datepicker-input"}
+								placeholderText={t('Job Openings info date of closing')}
+							/>
+						</>
 					</div>
 				</div>
 			</div>

@@ -32,7 +32,7 @@ export const JobOpenings = () => {
 		return jobOpenings.map((data) =>
 			<tr>
 				<td>
-					<Link to={`/job-openings/info/${data?._id}`}>{data?.title}Office manager</Link>
+					<Link to={`/job-openings/info/${data?._id}`}>{data?.title}</Link>
 				</td>
 				<td>{data?.location}</td>
 				<td>{data?.recruiterName}</td>
