@@ -84,23 +84,27 @@ export const MyAccount = () => {
 
 			</div>
 
-			<div className="MyAccount-action">
-				<Link to={'/add-recruiter'}>
-					{t('My Account add recruiter')}
-				</Link>
-			</div>
+			{
+				data.position == 'Head of HR' && <div className="MyAccount-action">
+					<Link to={'/add-recruiter'}>
+						{t('My Account add recruiter')}
+					</Link>
+				</div>
+			}
 
-			<div className="MyAccount-analytics">
-				<div className="MyAccount-analytics-header">
-					<h1>
-						{t('My Account analytics header')}
-					</h1>
+			{
+				data.position == 'Head of HR' && <div className="MyAccount-analytics">
+					<div className="MyAccount-analytics-header">
+						<h1>
+							{t('My Account analytics header')}
+						</h1>
+					</div>
+					<div className="MyAccount-analytics-links">
+						<Link to={'/analytics/job-openings/'}>{t('My Account analytics for job openings')}</Link>
+						<Link to={'/analytics/recruiters/'}>{t('My Account analytics for recruiters')}</Link>
+					</div>
 				</div>
-				<div className="MyAccount-analytics-links">
-					<Link to={'/analytics/job-openings/'}>{t('My Account analytics for job openings')}</Link>
-					<Link to={'/analytics/recruiters/'}>{t('My Account analytics for recruiters')}</Link>
-				</div>
-			</div>
+			}
 		</div>
 			}
 
