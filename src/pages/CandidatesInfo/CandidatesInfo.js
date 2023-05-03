@@ -138,7 +138,14 @@ export const CandidatesInfo = () => {
 									<span className="title">
 										{t('Candidates info English Level')}
 									</span>
-									<input type="text" value={data?.englishLevel} disabled={!isEdit} onChange={e => setData({...data, englishLevel: e.target.value})}/>
+									<select disabled={!isEdit} value={data?.englishLevel} onChange={e => setData({...data, englishLevel: e.target.value})}>
+										<option value=''>{t('Candidates info English Level')}</option>
+										<option value={t('English level Basic')}>{t('English level Basic')}</option>
+										<option value={t('English level Pre-intermediate')}>{t('English level Pre-intermediate')}</option>
+										<option value={t('English level Intermediate')}>{t('English level Intermediate')}</option>
+										<option value={t('English level Upper-intermediate')}>{t('English level Upper-intermediate')}</option>
+										<option value={t('English level Advanced')}>{t('English level Advanced')}</option>
+									</select>
 								</div>
 							</div>
 
@@ -273,7 +280,17 @@ export const CandidatesInfo = () => {
 									<span className="title">
 										{t('Candidates info Candidate Status')}
 									</span>
-									<input type="text" value={data?.candidateStatus} disabled={!isEdit} onChange={e => setData({...data, candidateStatus: e.target.value})}/>
+									<select disabled={!isEdit} value={data?.candidateStatus} onChange={e => setData({...data, candidateStatus: e.target.value})}>
+										<option value=''>{t('Candidates info Candidate Status')}</option>
+										<option value={t('Statuses - Contacted')}>{t('Statuses - Contacted')}</option>
+										<option value={t('Statuses - Interested')}>{t('Statuses - Interested')}</option>
+										<option value={t('Statuses - Pre-screen')}>{t('Statuses - Pre-screen')}</option>
+										<option value={t('Statuses - Test Task')}>{t('Statuses - Test Task')}</option>
+										<option value={t('Statuses - Technical Interview')}>{t('Statuses - Technical Interview')}</option>
+										<option value={t('Statuses - Final Interview')}>{t('Statuses - Final Interview')}</option>
+										<option value={t('Statuses - Offer')}>{t('Statuses - Offer')}</option>
+										<option value={t('Statuses - Hired')}>{t('Statuses - Hired')}</option>
+									</select>
 								</div>}
 							</div>
 						</div>

@@ -52,18 +52,34 @@
         width: 200px;
       }
 
-      input, .datepicker-input {
+      input, .datepicker-input, select {
         border: none;
         background-color: #c100d1;
         font-family: 'Nunito', sans-serif;
         font-size: 7px;
         color: #ffffff;
         text-align: center;
+        box-sizing: border-box;
         width: 200px;
         height: 17px;
 
         &::placeholder {
           color: #ffffff;
+        }
+      }
+
+      select {
+        option {
+          &:first-child {
+            display: none;
+            -webkit-appearance: none;
+            appearance: none;
+          }
+        }
+
+        &[disabled] {
+          opacity: 1;
+          -webkit-appearance: none;
         }
       }
 
