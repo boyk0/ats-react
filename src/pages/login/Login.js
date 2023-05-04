@@ -5,6 +5,7 @@ import './login.scss'
 import logo from '../../static/images/logo-blue.png'
 import { axiosClient, url } from '../../client';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export const Login = () => {
 	const { t } = useTranslation();
@@ -19,7 +20,7 @@ export const Login = () => {
 
 	const login = () => {
 		setLoading(true);
-		axiosClient.post(`${url}auth/login`, data)
+		axios.post(`${url}auth/login`, data)
 			.then(response => response.data)
 			.then(data => {
 				localStorage.setItem('user', data?._id)
