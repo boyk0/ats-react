@@ -12,6 +12,8 @@ export const JobOpeningsInfo = () => {
 	const [saveLoading, setSaveLoading] = useState(false);
 	const [data, setData] = useState([]);
 	const [error, setError] = useState();
+	const [recruiters, setRecruiters] = useState([])
+	const [loadingRecruiters, setLoadingRecruiters] = useState(true)
 
 	const { id } = useParams();
 
@@ -36,7 +38,21 @@ export const JobOpeningsInfo = () => {
 				console.error(error.message);
 				setError(error);
 			})
-			.finally(() => setSaveLoading(false));
+			.finally(() => setSaveLoading(false))
+	}
+
+	const loadRecruiters = async () => {
+		setLoadingRecruiters(true)
+		await axiosClient.get(`${url}recruiter/all`)
+			.then(response => response.data)
+			.then(data => {
+				setRecruiters(data)
+			})
+			.catch(error => {
+				console.error(error)
+				setError(error)
+			})
+			.finally(setLoadingRecruiters(false))
 	}
 
 	const loadData = (id) => {
@@ -56,7 +72,8 @@ export const JobOpeningsInfo = () => {
 				console.error(error.message);
 				setError(error);
 			})
-			.finally(() => setLoading(false));
+			.finally(() => setLoading(false))
+			.then(() => loadRecruiters());
 	}
 
 	return (
@@ -83,7 +100,13 @@ export const JobOpeningsInfo = () => {
 					<span className="title">
 						{t('Job Openings info recruiter')}
 					</span>
-						<input type="text" placeholder={t('Job Openings info recruiter')} value={data.recruiterName} disabled={!isEdit} onChange={e => setData({...data, recruiterName: e.target.value})}/>
+						<select disabled={!isEdit} value={JSON.stringify({recruiterId: data?.recruiterId, recruiterName: data?.recruiterName})} onChange={e => {
+							const value = JSON.parse(e.target.value)
+							setData({...data, ...value})
+						}}>
+							<option value=''>{t('Job Openings info recruiter')}</option>
+							{!loadingRecruiters && recruiters.map(el => <option value={JSON.stringify({recruiterId: el._id, recruiterName: el.name})}>{el.name} {el.surname}</option>)}
+						</select>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 					<span className="title">

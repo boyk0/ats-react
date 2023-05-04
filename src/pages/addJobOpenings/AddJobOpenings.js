@@ -8,11 +8,6 @@ import DatePicker from 'react-datepicker';
 export const AddJobOpenings = () => {
 	const { t } = useTranslation();
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		changeBGColorToBlue()
-	});
-
 	const defaultJobOpenings = {
 		title: '',
 		recruiterName: '',
@@ -24,9 +19,33 @@ export const AddJobOpenings = () => {
 		mustHave: '',
 		salaryRange: '',
 		dateOfClosing: '',
+		recruiterId: '',
 	}
-
 	const [data, setData] = useState({...defaultJobOpenings})
+	const [loading, setLoading] = useState(false)
+	const [error, setError] = useState(null)
+	const [recruiters, setRecruiters] = useState([])
+
+	useEffect(() => {
+		changeBGColorToBlue()
+		if (!recruiters.length && !error) {
+			loadRecruiters()
+		}
+	});
+
+	const loadRecruiters = async () => {
+		setLoading(true)
+		await axiosClient.get(`${url}recruiter/all`)
+			.then(response => response.data)
+			.then(data => {
+				setRecruiters(data)
+			})
+			.catch(error => {
+				console.error(error)
+				setError(error)
+			})
+			.finally(setLoading(false))
+	}
 
 	const onSave = async () => {
 		await axiosClient.post(`${url}job-openings`, data)
@@ -34,12 +53,15 @@ export const AddJobOpenings = () => {
 			.catch(error => console.error(error.message))
 	}
 
-	return <div className="JobOpeningsInfo">
+	return <>
+		<div className="JobOpeningsInfo">
 		<div className="JobOpeningsInfo-header">
 			<h1>
 				{t('Add New Job Opening Header')}
 			</h1>
 		</div>
+			{
+				!loading &&
 		<div className="JobOpeningsInfo-content">
 			<div className="row">
 
@@ -54,7 +76,13 @@ export const AddJobOpenings = () => {
 						<span className="title">
 							{t('Job Openings info recruiter')}
 						</span>
-						<input type="text" value={data.recruiterName} placeholder={t('Job Openings info recruiter')} onChange={e => setData({...data, recruiterName: e.target.value})}/>
+						<select value={JSON.stringify({recruiterId: data?.recruiterId, recruiterName: data?.recruiterName})} onChange={e => {
+							const value = JSON.parse(e.target.value)
+							setData({...data, ...value})
+						}}>
+							<option value=''>{t('Job Openings info recruiter')}</option>
+							{recruiters.map(el => <option value={JSON.stringify({recruiterId: el._id, recruiterName: el.name})}>{el.name} {el.surname}</option>)}
+						</select>
 					</div>
 					<div className="JobOpeningsInfo-data-row">
 						<span className="title">
@@ -133,5 +161,8 @@ export const AddJobOpenings = () => {
 				</div>
 			</div>
 		</div>
+			}
+			{error}
 	</div>
+		</>
 }

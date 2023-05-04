@@ -8,6 +8,8 @@ export const JobOpeningsAnalytics = () => {
 	const { t } = useTranslation();
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
+	const [filter, setFilter] = useState('');
+	const [filterLoading, setFilterLoading] = useState(false);
 	const [error, setError] = useState();
 
 	useEffect(() => {
@@ -41,6 +43,16 @@ export const JobOpeningsAnalytics = () => {
 		);
 	}
 
+	const updateFilter = (jobOpeningName) => {
+		setFilter(jobOpeningName)
+		setFilterLoading(true)
+		axiosClient.get(`${url}candidate/searchByJobOpeningName?jobOpeningName=${jobOpeningName}`)
+			.then(response => response.data)
+			.then(data => setData(data))
+			.catch((e) => setError(e))
+			.finally(setFilterLoading(false))
+	}
+
 	return (
 		<>
 			{
@@ -51,7 +63,7 @@ export const JobOpeningsAnalytics = () => {
 							{t('Analytics for job openings subheader')}
 						</h4>
 						<div className="JobOpeningsAnalytics-enter-job-openings">
-							<input placeholder={t('Analytics for job openings enter job opening')}/>
+							<input placeholder={t('Analytics for job openings enter job opening')} value={filter} onChange={(e) => updateFilter(e.target.value)}/>
 						</div>
 					</div>
 
@@ -65,7 +77,7 @@ export const JobOpeningsAnalytics = () => {
 									<th>{t('Analytics for job openings table location')}</th>
 									<th>{t('Analytics for job openings table candidate status')}</th>
 								</tr>
-								{showData(data)}
+								{!filterLoading && showData(data)}
 							</table>
 						</div>
 					</div>
