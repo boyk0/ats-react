@@ -13,6 +13,7 @@ export const CandidatesInfo = () => {
 	const [saveLoading, setSaveLoading] = useState(false);
 	const [data, setData] = useState([]);
 	const [error, setError] = useState();
+	const [jobOpenings, setJobOpenings] = useState([])
 
 	const { id } = useParams();
 
@@ -53,7 +54,9 @@ export const CandidatesInfo = () => {
 				console.error(error.message);
 				setError(error);
 			})
-			.finally(() => setLoading(false));
+			.finally(() => setLoading(false))
+			.then(() => loadJobOpenings());
+
 	}
 
 	const onEditClick = () => {
@@ -71,6 +74,27 @@ export const CandidatesInfo = () => {
 			})
 			.finally(() => setSaveLoading(false));
 	}
+
+	const loadJobOpenings = async () => {
+		setLoading(true)
+		await axiosClient.get(`${url}job-openings/all`)
+			.then(response => response.data)
+			.then(data => {
+				setJobOpenings(data)
+			})
+			.catch(error => {
+				console.error(error)
+				setError(error)
+			})
+			.finally(setLoading(false))
+	}
+
+	const filterPassedTime = (time) => {
+		const currentDate = new Date();
+		const selectedDate = new Date(time);
+
+		return currentDate.getTime() < selectedDate.getTime();
+	};
 
 	return (
 		<>
@@ -154,7 +178,13 @@ export const CandidatesInfo = () => {
 									<span className="title">
 										{t('Candidates info Job Openings')}
 									</span>
-									<input type="text" value={data?.jobOpening} disabled={!isEdit} onChange={e => setData({...data, jobOpening: e.target.value})}/>
+									<select disabled={!isEdit} value={JSON.stringify({jobOpeningId: data?.jobOpeningId, jobOpening: data?.jobOpening})} onChange={e => {
+										const value = JSON.parse(e.target.value)
+										setData({...data, ...value})
+									}}>
+										<option value='' >{t('Candidates info Job Openings')}</option>
+										{jobOpenings.map(el => <option value={JSON.stringify({jobOpeningId: el._id, jobOpening: el.title})}>{el.title}</option>)}
+									</select>
 								</div>
 								<div className="CandidatesInfo-data-row">
 									<span className="title">
@@ -189,8 +219,11 @@ export const CandidatesInfo = () => {
 									</span>
 									<>
 										<DatePicker
-											dateFormat="dd/MM/yyyy"
+											dateFormat="dd/MM/yyyy h:mm aa"
+											showTimeSelect
+											filterTime={filterPassedTime}
 											selected={data?.dateOfInterview}
+											minDate={new Date()}
 											onChange={(date) => setData({...data, dateOfInterview: date})}
 											className={"datepicker-input"}
 											disabled={!isEdit}
