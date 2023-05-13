@@ -6,11 +6,23 @@
   }
 }
 
-.react-datepicker__day--keyboard-selected {
-  background: rgba(193, 0, 209, 0.4);
+.react-datepicker {
+  &__day--keyboard-selected {
+    background: rgba(193, 0, 209, 0.4);
 
-  &:hover {
-    background: #9500a1;
+    &:hover {
+      background: #9500a1;
+    }
+  }
+
+  &__time-list-item{
+    &--selected {
+      background-color: #c100d1 !important;
+    }
+
+    &--disabled.react-datepicker__time-list-item--selected {
+      background-color: #9500a1 !important;
+    }
   }
 }
 
